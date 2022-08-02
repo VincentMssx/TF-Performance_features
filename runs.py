@@ -29,12 +29,12 @@ def run_one(device, model, prefetch, epochs, verbose):
             model.fit(epochs, train_ds, test_ds, verbose=verbose)
 
 
-def run_all(parameters):
+def run_all(parameters, epochs, verbose):
     keys, values = zip(*parameters.items())
     configs = [dict(zip(keys, v)) for v in itertools.product(*values)]
 
     for config in configs:
         start = time()
-        run_one(*config.values())
+        run_one(*config.values(), epochs, verbose)
         end = time()
         print(config, '->', f'{round(end-start)}s')

@@ -13,13 +13,13 @@ if __name__ == "__main__":
         "prefetch": [True, False]
     }
 
-    # run_all(parameters)
-    start = time()
-    run_one('GPU', 'simpleNet', False,  epochs=2, verbose=0)
-    end = time()
-    print(f'Execution time : {end-start}')
+    run_all(parameters, epochs=1, verbose=0)
+    # start = time()
+    # run_one('GPU', 'simpleNet', False,  epochs=2, verbose=0)
+    # end = time()
+    # print(f'Execution time : {end-start}')
 
-    start = time()
-    run_one('GPU', 'simpleNet_graph', False,  epochs=2, verbose=0)
-    end = time()
-    print(f'Execution time : {end-start}')
+    # start = time()
+    # run_one('GPU', 'simpleNet_graph', False,  epochs=2, verbose=0)
+    # end = time()
+    # print(f'Execution time : {end-start}')
