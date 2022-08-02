@@ -1,7 +1,7 @@
 import tensorflow as tf
 
 
-def input_pipeline(batch_size=32):
+def input_pipeline(prefetch, batch_size=32):
 
     # Load mnist
     mnist = tf.keras.datasets.mnist
@@ -20,6 +20,11 @@ def input_pipeline(batch_size=32):
     # Shuffle and batch
     train_ds = train_ds.shuffle(10000).batch(batch_size)
     test_ds = test_ds.batch(batch_size)
+
+    # Prefetch
+    if prefetch is True:
+        train_ds = train_ds.prefetch(tf.data.AUTOTUNE)
+        test_ds= test_ds.prefetch(tf.data.AUTOTUNE)
 
     return train_ds, test_ds
 
